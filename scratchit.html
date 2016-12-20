@@ -1,0 +1,95 @@
+
+<html>
+<head>
+	<script type="text/javascript" src="includes/jquery-1.7.2.prod.js"></script>
+	<script type="text/javascript" src="includes/jquery.rabidScratchCard.prod.js"></script>
+	
+	<script type="text/javascript">
+
+		$(function(){
+			$("#1").rabidScratchCard({
+				
+				revealRadius:50,
+				percentComplete:85,
+				revealOnComplete:true,
+				updateOnMouseMove:true,//setting this option is processor intensive. So, set this only if necessary. If set to false, % will be calculated only on muse up of scracthing
+				updateOnFingerMove:false,
+			    onScratchComplete : function(percentScratched) {
+					//you can access the current object by this or this.$elem[0]
+      				//Do any thing you want here
+										alert("first image scratched off by 85% and is revealed");
+
+			    },
+				onUpdate:function(percentScratched) {
+					$("#percentText1").html("Percent: "+percentScratched)
+			    }
+		});
+		$("#2").rabidScratchCard({
+				
+				revealRadius:20,
+				percentComplete:70,
+				revealOnComplete:true,
+				updateOnMouseMove:true,//setting this option is processor intensive. So, set this only if necessary. If set to false, % will be calculated only on muse up of scracthing
+				updateOnFingerMove:true,//Setting this option is severely processor intensive on mobile devices.
+			    onScratchComplete : function(percentScratched) {
+					//you can access the current object by this or this.$elem[0]
+      				//Do any thing you want here
+					alert("second image scratched off by 70% and is revealed");
+			    },
+				onUpdate:function(percentScratched) {
+					$("#percentText2").html("Percent: "+percentScratched)
+			    }
+		});
+		$("#3").rabidScratchCard({
+				
+				revealRadius:30,
+				revealOnComplete:false,
+				updateOnMouseMove:true,//setting this option is processor intensive. So, set this only if necessary. If set to false, % will be calculated only on muse up of scracthing
+				updateOnFingerMove:true,
+			    onScratchComplete : function(percentScratched) {
+					//you can access the current object by this or this.$elem[0]
+      				//Do any thing you want here
+					alert("thadaa... Happy New Year");
+			    },
+				onUpdate:function(percentScratched) {
+					$("#percentText3").html("you scratched: "+percentScratched+"  percentage")
+			    }
+		});
+			
+		});
+
+	
+	</script>
+</head>
+<body>
+<div class="main">
+<div id="header-bar">
+
+    
+
+     
+     
+     
+   </div>
+   
+   
+ <center>  
+   
+   
+<h1>scratch completely </h1>
+
+
+<p id="percentText3" style="margin-top:55px">0</p>
+
+<div id="3" class="scratchCard" data-backGroundImage="images/rev1.jpg" data-foreGroundImage="images/scr1.jpg">
+	<p style="font-size:50px">LOADING</p>
+	<img src="images/loading2.gif"/>
+</div>
+</center>
+
+
+<!--ScratchCard div ENDS-->
+</div>
+</body>
+
+</html>
